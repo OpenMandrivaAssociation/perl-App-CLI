@@ -17,7 +17,6 @@ Buildrequires:	perl-devel
 BuildRequires:  perl(Pod::Simple)
 BuildRequires:  perl(Locale::Maketext::Simple)
 BuildArch:      noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 App::CLI dispatches CLI (command line interface) based commands into command 
