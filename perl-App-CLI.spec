@@ -1,16 +1,16 @@
-%define module	App-CLI
-%define name	perl-%{module}
-%define version 0.08
-%define	release	%mkrel 1
+%define upstream_name	 App-CLI
+%define upstream_version 0.08
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-License:	GPL or Artistic
-Group:		Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Dispatcher module for command line interface programs 
-Url:            http://search.cpan.org/dist/%module/
-Source:		http://www.cpan.org/modules/by-module/App/%{module}-%{version}.tar.bz2
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://www.cpan.org/modules/by-module/App/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 Buildrequires:	perl-devel
 %endif
@@ -24,7 +24,7 @@ App::CLI dispatches CLI (command line interface) based commands into command
 classes. It also supports subcommand and per-command options.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 perl -pi -e 's/auto_install\(\)\;//' Makefile.PL
 
 %build
@@ -45,6 +45,3 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{perl_vendorlib}/App
 %{_mandir}/man3/*
-
-
-
