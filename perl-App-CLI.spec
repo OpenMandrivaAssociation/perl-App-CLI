@@ -1,15 +1,13 @@
 %define upstream_name	 App-CLI
-%define upstream_version 0.52
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	0.52
+Release:	2
 
 Summary:	Dispatcher module for command line interface programs 
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/paultcochrane/app-cli
-Source0:	https://cpan.metacpan.org/authors/id/P/PT/PTC/App-CLI-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/P/PT/PTC/App-CLI-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -22,7 +20,7 @@ App::CLI dispatches CLI (command line interface) based commands into command
 classes. It also supports subcommand and per-command options.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 perl -pi -e 's/auto_install\(\)\;//' Makefile.PL
 
 %build
@@ -59,9 +57,7 @@ make test
 
 * Sat Aug 01 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.80.0-1mdv2011.0
 + Revision: 405955
-- rebuild using %%perl_convert_version
-
-* Fri Feb 27 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.08-1mdv2009.1
+- rebuild using %0.52 Fri Feb 27 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.08-1mdv2009.1
 + Revision: 345429
 - update to new version 0.08
 
